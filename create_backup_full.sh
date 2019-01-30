@@ -15,6 +15,7 @@
 #     compressed archive.
 #
 # HISTORY
+#     30-01-2019: changed date format for better sorting
 #     27-12-2018: initial release
 
 # COMMAND LINE PARAMETERS
@@ -25,7 +26,7 @@ SRCRAW=${1%/}
 ARCHIVER=7z
 COMMAND=a
 SWITCH=-mhe=on
-DATE=`date "+%d-%m-%Y"`
+DATE=`date "+%Y-%m-%d"`
 
 # USER INPUT
 echo -n "Passwort: "
