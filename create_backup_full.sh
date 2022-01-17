@@ -15,6 +15,7 @@
 #     compressed archive.
 #
 # HISTORY
+#     17-01-2022: check if configured archiver exists
 #     30-01-2019: changed date format for better sorting
 #     27-12-2018: initial release
 
@@ -28,10 +29,16 @@ COMMAND=a
 SWITCH=-mhe=on
 DATE=`date "+%Y-%m-%d"`
 
+# CHECK REQUIREMENT
+if ! command -v $ARCHIVER &> /dev/null
+then
+    echo "Error: archiver not found. Change command or install" $ARCHIVER
+    exit
+fi
+
 # USER INPUT
 echo -n "Passwort: "
 read -s PWD 
 
 # CALL TO ARCHIVER
 $ARCHIVER $COMMAND $SWITCH -p$PWD "$SRCRAW"_$DATE.7z "$SRC"
-
